@@ -1,7 +1,5 @@
 import random
 
-money = 100
-
 #Coin flip function
 #Compares input from the player to the coin flip
 #and returns the amount of money won or lost
@@ -68,6 +66,37 @@ def pick_two_cards(bet):
 #Print to test the function
 #print(pick_two_cards(50))
 
+#Roullette game
+
+possible_picks = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
+                  16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
+                  30, 31, 32, 33, 34, 35, 36, "Odd", "Even", "DZ"]
+
+#Simulates a roullette game
+#Returns the bet modified however necessary
+def roullette(bet, choice):
+    num = random.randint(1, 39)
+    spin = possible_picks[num]
+    if choice == "Odd'" and spin == "Odd":
+        return bet
+    elif choice == "Even" and spin == "Even":
+        return bet
+    elif choice == spin:
+        return bet * 35
+    elif choice == "Odd" and spin >= 1 and spin <= 36:
+        if spin % 2 != 0:
+            return bet * 4
+        else:
+            return bet * -1
+    elif choice == "Even" and spin >= 1 and spin <= 36:
+        if spin % 2 == 0:
+            return bet * 4
+        else:
+            return bet * -1
+    else:
+        return bet * -1
+
+print(roullette(50, "Odd"))
 
 
 
@@ -76,4 +105,3 @@ def pick_two_cards(bet):
 
 
 
-#Call your game of chance functions here
