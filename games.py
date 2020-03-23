@@ -36,6 +36,42 @@ def cho_han(bet, odd_even):
 #Simulates two cards being picked the higher of the two wins
 #Function pics two cards and compares their value
 #Returns the amount of money won or lost
+deck = [11,11,11,11,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,
+        9,9,9,9,8,8,8,8,7,7,7,7,6,6,6,6,5,5,5,5,4,4,4,4,3,3,3,3,2,2,2,2]
+
+def pick_two_cards(bet):
+    card1_value = 0
+    card2_value = 0
+    new_deck = []
+    num1 = random.randint(1, 52)
+    num2 = random.randint(1, 51)
+    card1_value = deck[num1]
+    print(card1_value)
+    print(deck)
+    for index in range(52):
+        if index != num1 - 1:
+            new_deck.append(deck[index])
+        else:
+            continue
+    card2_value = new_deck[num2]
+    print(new_deck)
+    print(card2_value)
+
+    #check the card values to see who won
+    if card1_value > card2_value:
+        return bet
+    elif card1_value == card2_value:
+        return 0
+    else:
+        return bet * -1
+
+#Print to test the function
+#print(pick_two_cards(50))
+
+
+
+
+
 
 
 
